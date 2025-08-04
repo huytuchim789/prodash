@@ -12,7 +12,7 @@ describe('cloneDeep', () => {
   it('should deep clone arrays', () => {
     const array = [1, [2, 3], { a: 4 }];
     const cloned = cloneDeep(array);
-    
+
     expect(cloned).toEqual(array);
     expect(cloned).not.toBe(array);
     expect(cloned[1]).not.toBe(array[1]);
@@ -24,11 +24,11 @@ describe('cloneDeep', () => {
       a: 1,
       b: {
         c: 2,
-        d: [3, 4]
-      }
+        d: [3, 4],
+      },
     };
     const cloned = cloneDeep(obj);
-    
+
     expect(cloned).toEqual(obj);
     expect(cloned).not.toBe(obj);
     expect(cloned.b).not.toBe(obj.b);
@@ -38,7 +38,7 @@ describe('cloneDeep', () => {
   it('should clone Date objects', () => {
     const date = new Date('2021-01-01');
     const cloned = cloneDeep(date);
-    
+
     expect(cloned).toEqual(date);
     expect(cloned).not.toBe(date);
     expect(cloned.getTime()).toBe(date.getTime());
@@ -47,7 +47,7 @@ describe('cloneDeep', () => {
   it('should clone RegExp objects', () => {
     const regex = /test/gi;
     const cloned = cloneDeep(regex);
-    
+
     expect(cloned).toEqual(regex);
     expect(cloned).not.toBe(regex);
     expect(cloned.source).toBe(regex.source);
@@ -59,7 +59,7 @@ describe('cloneDeep', () => {
     // This test documents the current behavior
     const obj: any = { a: 1 };
     obj.self = obj;
-    
+
     expect(() => cloneDeep(obj)).toThrow(); // Will cause stack overflow
   });
 });

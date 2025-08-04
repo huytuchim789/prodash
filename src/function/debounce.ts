@@ -1,4 +1,4 @@
-import type { AnyFunction, DebounceOptions } from '../types';
+import type { AnyFunction, DebounceOptions } from '../types/index.js';
 
 interface DebouncedFunction<T extends AnyFunction> {
   (...args: Parameters<T>): ReturnType<T> | undefined;
@@ -8,21 +8,21 @@ interface DebouncedFunction<T extends AnyFunction> {
 }
 
 /**
- * Creates a debounced function that delays invoking func until after wait milliseconds 
+ * Creates a debounced function that delays invoking func until after wait milliseconds
  * have elapsed since the last time the debounced function was invoked.
- * 
+ *
  * @template T - The type of the function to debounce
  * @param func - The function to debounce
  * @param wait - The number of milliseconds to delay
  * @param options - The options object
  * @returns The new debounced function
- * 
+ *
  * @example
  * ```typescript
  * import { debounce } from 'prodash/debounce';
- * 
+ *
  * const debouncedSave = debounce(saveData, 300);
- * 
+ *
  * // Will only call saveData once after 300ms of no additional calls
  * debouncedSave();
  * debouncedSave();
@@ -37,13 +37,13 @@ export function debounce<T extends AnyFunction>(
   if (typeof func !== 'function') {
     throw new TypeError('Expected function as first argument');
   }
-  
+
   if (typeof wait !== 'number' || wait < 0) {
     throw new TypeError('Expected non-negative number as second argument');
   }
 
   const { leading = false, trailing = true, maxWait } = options;
-  
+
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
   let maxTimeoutId: ReturnType<typeof setTimeout> | undefined;
   let lastCallTime: number | undefined;

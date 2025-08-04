@@ -1,21 +1,21 @@
 /**
  * Performs a deep comparison between two values to determine if they are equivalent.
  * Supports arrays, objects, dates, regexes, and primitive values.
- * 
+ *
  * @param a - The first value to compare
  * @param b - The second value to compare
  * @returns True if the values are equivalent, false otherwise
- * 
+ *
  * @example
  * ```typescript
  * import { isEqual } from 'prodash/isEqual';
- * 
+ *
  * isEqual([1, 2, 3], [1, 2, 3]);
  * // => true
- * 
+ *
  * isEqual({ a: 1 }, { a: 1 });
  * // => true
- * 
+ *
  * isEqual(new Date('2021-01-01'), new Date('2021-01-01'));
  * // => true
  * ```

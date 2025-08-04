@@ -10,7 +10,7 @@ describe('map', () => {
     const iteratee = jest.fn();
     const array = [1, 2, 3];
     map(array, iteratee);
-    
+
     expect(iteratee).toHaveBeenCalledTimes(3);
     expect(iteratee).toHaveBeenCalledWith(1, 0, array);
     expect(iteratee).toHaveBeenCalledWith(2, 1, array);
@@ -41,7 +41,10 @@ describe('map', () => {
   });
 
   it('should work with complex objects', () => {
-    const users = [{ name: 'john', age: 30 }, { name: 'jane', age: 25 }];
+    const users = [
+      { name: 'john', age: 30 },
+      { name: 'jane', age: 25 },
+    ];
     const names = map(users, user => user.name);
     expect(names).toEqual(['john', 'jane']);
   });

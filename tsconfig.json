@@ -30,17 +30,6 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "lib",
-    "lib-es", 
-    "umd",
-    "**/*.test.ts",
-    "**/*.spec.ts",
-    "benchmarks",
-    "docs"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "benchmarks", "docs", "playground"]
 }

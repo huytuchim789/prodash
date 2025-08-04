@@ -1,200 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prodash Browser Test</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .result {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 10px 0;
-            border-left: 4px solid #007acc;
-        }
-        .error {
-            background: #ffe6e6;
-            border-left-color: #dc3545;
-        }
-        .success {
-            background: #e6ffe6;
-            border-left-color: #28a745;
-        }
-        button {
-            background: #007acc;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-        }
-        button:hover {
-            background: #005fa3;
-        }
-        pre {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .result {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 10px 0;
+        border-left: 4px solid #007acc;
+      }
+      .error {
+        background: #ffe6e6;
+        border-left-color: #dc3545;
+      }
+      .success {
+        background: #e6ffe6;
+        border-left-color: #28a745;
+      }
+      button {
+        background: #007acc;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background: #005fa3;
+      }
+      pre {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>🚀 Prodash Browser Test</h1>
-        <p>This page tests prodash library in the browser environment.</p>
-        
-        <h2>📦 Load Tests</h2>
-        <button onclick="testESMLoad()">Test ESM Load</button>
-        <button onclick="testUMDLoad()">Test UMD Load</button>
-        <button onclick="testIndividualImports()">Test Individual Imports</button>
-        
-        <h2>🧪 Function Tests</h2>
-        <button onclick="testArrayFunctions()">Test Array Functions</button>
-        <button onclick="testObjectFunctions()">Test Object Functions</button>
-        <button onclick="testChainAPI()">Test Chain API</button>
-        <button onclick="testPerformance()">Test Performance</button>
-        
-        <h2>📊 Results</h2>
-        <div id="results"></div>
-        
-        <h2>💡 Usage Examples</h2>
-        <pre><code>// ESM Import
-import { map, filter, chain } from './path/to/prodash/lib-es/index.js';
+      <h1>🚀 Prodash Browser Test</h1>
+      <p>This page tests prodash library in the browser environment.</p>
+
+      <h2>📦 Load Tests</h2>
+      <button onclick="testESMLoad()">Test ESM Load</button>
+      <button onclick="testUMDLoad()">Test UMD Load</button>
+      <button onclick="testIndividualImports()">Test Individual Imports</button>
+
+      <h2>🧪 Function Tests</h2>
+      <button onclick="testArrayFunctions()">Test Array Functions</button>
+      <button onclick="testObjectFunctions()">Test Object Functions</button>
+      <button onclick="testChainAPI()">Test Chain API</button>
+      <button onclick="testPerformance()">Test Performance</button>
+
+      <h2>📊 Results</h2>
+      <div id="results"></div>
+
+      <h2>💡 Usage Examples</h2>
+      <pre><code>// ESM Import
+import { map, filter } from './path/to/prodash/dist/esm/index.js';
 
 // UMD (Global)
-const { map, filter, chain } = window.prodash;
+const { map, filter } = window.prodash;
 
 // Individual imports (best for tree-shaking)
-import map from './path/to/prodash/lib-es/array/map.js';</code></pre>
+import map from './path/to/prodash/dist/esm/array/map.js';</code></pre>
     </div>
 
     <!-- UMD build for testing -->
-    <!-- <script src="../umd/prodash.min.js"></script> -->
+    <!-- <script src="../dist/umd/prodash.min.js"></script> -->
 
     <script>
-        function addResult(message, type = 'result') {
-            const results = document.getElementById('results');
-            const div = document.createElement('div');
-            div.className = `result ${type}`;
-            div.innerHTML = message;
-            results.appendChild(div);
-        }
+      function addResult(message, type = 'result') {
+        const results = document.getElementById('results');
+        const div = document.createElement('div');
+        div.className = `result ${type}`;
+        div.innerHTML = message;
+        results.appendChild(div);
+      }
 
-        function testESMLoad() {
-            addResult('🔍 Testing ESM Load...', 'result');
-            
-            // This will work after building prodash
-            try {
-                addResult('⚠️ Build prodash first: <code>cd .. && npm run build</code>', 'error');
-                // Dynamic import would go here
-                // import('../lib-es/index.js').then(prodash => {
-                //     addResult('✅ ESM Load successful', 'success');
-                // });
-            } catch (error) {
-                addResult(`❌ ESM Load failed: ${error.message}`, 'error');
-            }
-        }
+      function testESMLoad() {
+        addResult('🔍 Testing ESM Load...', 'result');
 
-        function testUMDLoad() {
-            addResult('🔍 Testing UMD Load...', 'result');
-            
-            if (typeof window.prodash !== 'undefined') {
-                addResult('✅ UMD Load successful - prodash available globally', 'success');
-            } else {
-                addResult('⚠️ UMD not loaded. Include the UMD script: <code>&lt;script src="../umd/prodash.min.js"&gt;&lt;/script&gt;</code>', 'error');
-            }
+        // This will work after building prodash
+        try {
+          addResult('⚠️ Build prodash first: <code>cd .. && npm run build</code>', 'error');
+          // Dynamic import would go here
+          // import('../lib-es/index.js').then(prodash => {
+          //     addResult('✅ ESM Load successful', 'success');
+          // });
+        } catch (error) {
+          addResult(`❌ ESM Load failed: ${error.message}`, 'error');
         }
+      }
 
-        function testIndividualImports() {
-            addResult('🔍 Testing Individual Imports...', 'result');
-            addResult('⚠️ Individual imports require a build step and module bundler', 'result');
-            addResult('💡 Use this pattern: <code>import map from "prodash/map"</code>', 'result');
+      function testUMDLoad() {
+        addResult('🔍 Testing UMD Load...', 'result');
+
+        if (typeof window.prodash !== 'undefined') {
+          addResult('✅ UMD Load successful - prodash available globally', 'success');
+        } else {
+          addResult(
+            '⚠️ UMD not loaded. Include the UMD script: <code>&lt;script src="../dist/umd/prodash.min.js"&gt;&lt;/script&gt;</code>',
+            'error'
+          );
         }
+      }
 
-        function testArrayFunctions() {
-            addResult('🔍 Testing Array Functions...', 'result');
-            
-            // Mock implementations for demo
-            const mockMap = (arr, fn) => arr.map(fn);
-            const mockFilter = (arr, fn) => arr.filter(fn);
-            const mockUniq = arr => [...new Set(arr)];
-            
-            const numbers = [1, 2, 3, 4, 5, 2, 1];
-            
-            const doubled = mockMap(numbers, n => n * 2);
-            const evens = mockFilter(numbers, n => n % 2 === 0);
-            const unique = mockUniq(numbers);
-            
-            addResult(`📊 Original: [${numbers.join(', ')}]`, 'result');
-            addResult(`📊 Doubled: [${doubled.join(', ')}]`, 'result');
-            addResult(`📊 Evens: [${evens.join(', ')}]`, 'result');
-            addResult(`📊 Unique: [${unique.join(', ')}]`, 'result');
-            addResult('✅ Array functions working (using mock implementations)', 'success');
-        }
+      function testIndividualImports() {
+        addResult('🔍 Testing Individual Imports...', 'result');
+        addResult('⚠️ Individual imports require a build step and module bundler', 'result');
+        addResult('💡 Use this pattern: <code>import map from "prodash/map"</code>', 'result');
+      }
 
-        function testObjectFunctions() {
-            addResult('🔍 Testing Object Functions...', 'result');
-            
-            const obj = { a: 1, b: 2, c: 3, d: 4 };
-            
-            // Mock implementations
-            const mockPick = (obj, keys) => {
-                const result = {};
-                keys.forEach(key => {
-                    if (key in obj) result[key] = obj[key];
-                });
-                return result;
-            };
-            
-            const picked = mockPick(obj, ['a', 'c']);
-            
-            addResult(`📊 Original: ${JSON.stringify(obj)}`, 'result');
-            addResult(`📊 Picked (a, c): ${JSON.stringify(picked)}`, 'result');
-            addResult('✅ Object functions working (using mock implementations)', 'success');
-        }
+      function testArrayFunctions() {
+        addResult('🔍 Testing Array Functions...', 'result');
 
-        function testChainAPI() {
-            addResult('🔍 Testing Chain API...', 'result');
-            
-            addResult('⚠️ Chain API requires the full prodash build', 'result');
-            addResult('💡 Usage: <code>chain([1,2,3]).filter(n => n > 1).map(n => n * 2).value()</code>', 'result');
-        }
+        // Mock implementations for demo
+        const mockMap = (arr, fn) => arr.map(fn);
+        const mockFilter = (arr, fn) => arr.filter(fn);
+        const mockUniq = arr => [...new Set(arr)];
 
-        function testPerformance() {
-            addResult('🔍 Testing Performance...', 'result');
-            
-            const largeArray = Array.from({ length: 100000 }, (_, i) => i);
-            
-            const start = performance.now();
-            const result = largeArray.map(n => n * 2).filter(n => n % 2 === 0);
-            const end = performance.now();
-            
-            addResult(`⚡ Processed ${largeArray.length} items in ${(end - start).toFixed(2)}ms`, 'result');
-            addResult(`📊 Result length: ${result.length}`, 'result');
-            addResult('✅ Performance test completed', 'success');
-        }
+        const numbers = [1, 2, 3, 4, 5, 2, 1];
 
-        // Initial load test
-        window.addEventListener('load', () => {
-            addResult('🎉 Playground loaded successfully!', 'success');
-            addResult('💡 Build prodash first, then test the functions above', 'result');
-        });
+        const doubled = mockMap(numbers, n => n * 2);
+        const evens = mockFilter(numbers, n => n % 2 === 0);
+        const unique = mockUniq(numbers);
+
+        addResult(`📊 Original: [${numbers.join(', ')}]`, 'result');
+        addResult(`📊 Doubled: [${doubled.join(', ')}]`, 'result');
+        addResult(`📊 Evens: [${evens.join(', ')}]`, 'result');
+        addResult(`📊 Unique: [${unique.join(', ')}]`, 'result');
+        addResult('✅ Array functions working (using mock implementations)', 'success');
+      }
+
+      function testObjectFunctions() {
+        addResult('🔍 Testing Object Functions...', 'result');
+
+        const obj = { a: 1, b: 2, c: 3, d: 4 };
+
+        // Mock implementations
+        const mockPick = (obj, keys) => {
+          const result = {};
+          keys.forEach(key => {
+            if (key in obj) result[key] = obj[key];
+          });
+          return result;
+        };
+
+        const picked = mockPick(obj, ['a', 'c']);
+
+        addResult(`📊 Original: ${JSON.stringify(obj)}`, 'result');
+        addResult(`📊 Picked (a, c): ${JSON.stringify(picked)}`, 'result');
+        addResult('✅ Object functions working (using mock implementations)', 'success');
+      }
+
+      function testChainAPI() {
+        addResult('🔍 Testing Chain API...', 'result');
+
+        addResult('⚠️ Chain API requires the full prodash build', 'result');
+        addResult(
+          '💡 Usage: <code>chain([1,2,3]).filter(n => n > 1).map(n => n * 2).value()</code>',
+          'result'
+        );
+      }
+
+      function testPerformance() {
+        addResult('🔍 Testing Performance...', 'result');
+
+        const largeArray = Array.from({ length: 100000 }, (_, i) => i);
+
+        const start = performance.now();
+        const result = largeArray.map(n => n * 2).filter(n => n % 2 === 0);
+        const end = performance.now();
+
+        addResult(
+          `⚡ Processed ${largeArray.length} items in ${(end - start).toFixed(2)}ms`,
+          'result'
+        );
+        addResult(`📊 Result length: ${result.length}`, 'result');
+        addResult('✅ Performance test completed', 'success');
+      }
+
+      // Initial load test
+      window.addEventListener('load', () => {
+        addResult('🎉 Playground loaded successfully!', 'success');
+        addResult('💡 Build prodash first, then test the functions above', 'result');
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -1,4 +1,3 @@
-
 /**
  * Test setup and utilities for prodash
  */

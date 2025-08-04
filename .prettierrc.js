@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   semi: true,
   trailingComma: 'es5',
   singleQuote: true,
@@ -14,8 +14,8 @@ module.exports = {
     {
       files: '*.json',
       options: {
-        printWidth: 120
-      }
-    }
-  ]
+        printWidth: 120,
+      },
+    },
+  ],
 };

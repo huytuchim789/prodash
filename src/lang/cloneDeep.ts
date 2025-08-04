@@ -1,17 +1,17 @@
-import type { DeepCloneable } from '../types';
+import type { DeepCloneable } from '../types/index.js';
 
 /**
  * This method is like clone except that it recursively clones value.
  * Supports cloning arrays, objects, dates, regexes, and primitive values.
- * 
+ *
  * @template T - The type of value to clone
  * @param value - The value to recursively clone
  * @returns A deep clone of the value
- * 
+ *
  * @example
  * ```typescript
  * import { cloneDeep } from 'prodash/cloneDeep';
- * 
+ *
  * const objects = [{ a: 1 }, { b: 2 }];
  * const deep = cloneDeep(objects);
  * console.log(deep[0] === objects[0]); // false
@@ -50,7 +50,7 @@ export function cloneDeep<T extends DeepCloneable>(value: T): T {
       (cloned as any)[key] = cloneDeep((value as any)[key]);
     }
   }
-  
+
   return cloned;
 }
 

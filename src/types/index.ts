@@ -32,7 +32,9 @@ export interface ChainableObject<T> {
   value(): T;
   pick<K extends keyof T>(keys: K[]): ChainableObject<Pick<T, K>>;
   omit<K extends keyof T>(keys: K[]): ChainableObject<Omit<T, K>>;
-  mapValues<R>(iteratee: (value: T[keyof T], key: keyof T) => R): ChainableObject<Record<keyof T, R>>;
+  mapValues<R>(
+    iteratee: (value: T[keyof T], key: keyof T) => R
+  ): ChainableObject<Record<keyof T, R>>;
 }
 
 // Debounce/Throttle options
@@ -48,13 +50,13 @@ export interface ThrottleOptions {
 }
 
 // Deep clone types
-export type DeepCloneable = 
-  | string 
-  | number 
-  | boolean 
-  | null 
-  | undefined 
-  | Date 
-  | RegExp 
+export type DeepCloneable =
+  | string
+  | number
+  | boolean
+  | null
+  | undefined
+  | Date
+  | RegExp
   | Array<DeepCloneable>
   | { [key: string]: DeepCloneable };

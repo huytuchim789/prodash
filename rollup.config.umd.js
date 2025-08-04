@@ -5,21 +5,21 @@ export default [
   {
     ...baseConfig,
     output: {
-      file: 'umd/prodash.js',
+      file: 'dist/umd/prodash.js',
       format: 'umd',
       name: 'prodash',
-      exports: 'named'
-    }
+      exports: 'named',
+    },
   },
   // UMD minified build
   {
     ...baseConfig,
     plugins: minifiedPlugins,
     output: {
-      file: 'umd/prodash.min.js',
+      file: 'dist/umd/prodash.min.js',
       format: 'umd',
       name: 'prodash',
-      exports: 'named'
-    }
-  }
+      exports: 'named',
+    },
+  },
 ];

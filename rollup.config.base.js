@@ -8,16 +8,18 @@ export const baseConfig = {
   plugins: [
     resolve({
       browser: true,
-      preferBuiltins: false
+      preferBuiltins: false,
     }),
     commonjs(),
     typescript({
       tsconfig: './tsconfig.json',
       declaration: false, // We'll handle declarations separately
-      declarationMap: false
-    })
+      declarationMap: false,
+      outDir: undefined, // Let Rollup handle output directory
+      sourceMap: true,
+    }),
   ],
-  external: [] // No external dependencies for a utility library
+  external: [], // No external dependencies for a utility library
 };
 
 export const minifiedPlugins = [
@@ -27,7 +29,7 @@ export const minifiedPlugins = [
       pure_getters: true,
       unsafe: true,
       unsafe_comps: true,
-      warnings: false
-    }
-  })
+      warnings: false,
+    },
+  }),
 ];
