@@ -10,7 +10,7 @@ A modern, tree-shakable JavaScript utility library with TypeScript support, insp
 ## ✨ Features
 
 - 🌳 **Tree-shakable**: Import only what you need
-- 📦 **Zero dependencies**: Lightweight and fast  
+- 📦 **Zero dependencies**: Lightweight and fast
 - 🔒 **Type-safe**: Full TypeScript support with strict types
 - 🔗 **Chainable**: Optional chain API for fluent programming
 - 🚀 **Modern**: ES2018+ with native JavaScript optimizations
@@ -70,32 +70,32 @@ console.log(result); // [4, 8]
 
 ### Array Methods
 
-| Function | Description | Example |
-|----------|-------------|---------|
-| `map` | Transform array elements | `map([1,2,3], x => x*2)` → `[2,4,6]` |
-| `filter` | Filter array elements | `filter([1,2,3,4], x => x%2===0)` → `[2,4]` |
-| `uniq` | Remove duplicates | `uniq([1,2,2,3])` → `[1,2,3]` |
-| `chunk` | Split into chunks | `chunk([1,2,3,4], 2)` → `[[1,2],[3,4]]` |
+| Function | Description              | Example                                     |
+| -------- | ------------------------ | ------------------------------------------- |
+| `map`    | Transform array elements | `map([1,2,3], x => x*2)` → `[2,4,6]`        |
+| `filter` | Filter array elements    | `filter([1,2,3,4], x => x%2===0)` → `[2,4]` |
+| `uniq`   | Remove duplicates        | `uniq([1,2,2,3])` → `[1,2,3]`               |
+| `chunk`  | Split into chunks        | `chunk([1,2,3,4], 2)` → `[[1,2],[3,4]]`     |
 
 ### Object Methods
 
-| Function | Description | Example |
-|----------|-------------|---------|
-| `pick` | Select properties | `pick({a:1,b:2,c:3}, ['a','c'])` → `{a:1,c:3}` |
-| `omit` | Exclude properties | `omit({a:1,b:2,c:3}, ['b'])` → `{a:1,c:3}` |
+| Function | Description        | Example                                        |
+| -------- | ------------------ | ---------------------------------------------- |
+| `pick`   | Select properties  | `pick({a:1,b:2,c:3}, ['a','c'])` → `{a:1,c:3}` |
+| `omit`   | Exclude properties | `omit({a:1,b:2,c:3}, ['b'])` → `{a:1,c:3}`     |
 
-### Function Utilities  
+### Function Utilities
 
-| Function | Description | Example |
-|----------|-------------|---------|
+| Function   | Description              | Example             |
+| ---------- | ------------------------ | ------------------- |
 | `debounce` | Delay function execution | `debounce(fn, 300)` |
 
 ### Language Utilities
 
-| Function | Description | Example |
-|----------|-------------|---------|
-| `isEqual` | Deep equality check | `isEqual([1,2], [1,2])` → `true` |
-| `cloneDeep` | Deep clone objects | `cloneDeep({a: {b: 1}})` |
+| Function    | Description         | Example                          |
+| ----------- | ------------------- | -------------------------------- |
+| `isEqual`   | Deep equality check | `isEqual([1,2], [1,2])` → `true` |
+| `cloneDeep` | Deep clone objects  | `cloneDeep({a: {b: 1}})`         |
 
 ## 🔗 Chain API
 
@@ -106,11 +106,11 @@ import { chain } from 'prodash';
 
 // Array chaining
 const result = chain([1, 2, 3, 4, 5, 2, 1])
-  .filter(n => n > 1)       // [2, 3, 4, 5, 2]
-  .map(n => n * 2)          // [4, 6, 8, 10, 4]  
-  .uniq()                   // [4, 6, 8, 10]
-  .take(3)                  // [4, 6, 8]
-  .value();                 // Unwrap result
+  .filter(n => n > 1) // [2, 3, 4, 5, 2]
+  .map(n => n * 2) // [4, 6, 8, 10, 4]
+  .uniq() // [4, 6, 8, 10]
+  .take(3) // [4, 6, 8]
+  .value(); // Unwrap result
 
 // Object chaining
 const user = chain({ name: 'John', age: 30, email: 'john@example.com' })
@@ -126,7 +126,7 @@ Prodash is designed with tree-shaking in mind. Use individual imports for the be
 // ✅ Good - Only imports the map function
 import map from 'prodash/map';
 
-// ❌ Avoid - Imports entire library  
+// ❌ Avoid - Imports entire library
 import prodash from 'prodash';
 const result = prodash.map(...);
 
@@ -143,7 +143,7 @@ import { map, filter } from 'prodash';
 
 // Full type inference
 const numbers: number[] = [1, 2, 3];
-const strings: string[] = map(numbers, n => n.toString()); // ✅ 
+const strings: string[] = map(numbers, n => n.toString()); // ✅
 const invalid: number[] = map(numbers, n => n.toString()); // ❌ Type error
 ```
 
@@ -178,6 +178,25 @@ npm run lint
 npm run format
 ```
 
+### 🎮 Playground
+
+Test prodash as a consumer would use it:
+
+```bash
+# Build prodash first
+npm run build
+
+# Go to playground
+cd playground
+npm install
+
+# Run tests
+npm run dev          # TypeScript test
+npm run test:esm     # ESM import test
+npm run test:cjs     # CommonJS test
+npm run serve        # Browser test
+```
+
 ## 📄 License
 
 MIT © [Your Name](https://github.com/yourusername)
@@ -191,7 +210,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to contribute to 
 **Why Prodash?**
 
 - 🎯 **Focused**: Essential utilities without bloat
-- 🔬 **Modern**: Built for ES2018+ environments  
+- 🔬 **Modern**: Built for ES2018+ environments
 - 📦 **Efficient**: Tree-shakable with minimal bundle impact
 - 🛡️ **Reliable**: Comprehensive tests and TypeScript safety
 - 🔄 **Familiar**: Lodash-inspired API you already know

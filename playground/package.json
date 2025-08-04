@@ -1,0 +1,25 @@
+{
+  "name": "prodash-playground",
+  "version": "1.0.0",
+  "description": "Testing environment for prodash library",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc && node dist/index.js",
+    "build:watch": "tsc -w",
+    "serve": "http-server . -p 3000 -o",
+    "test:node": "node dist/index.js",
+    "test:esm": "node src/esm-test.mjs",
+    "test:cjs": "node src/cjs-test.cjs"
+  },
+  "dependencies": {
+    "prodash": "file:../."
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "http-server": "^14.1.1",
+    "tsx": "^4.6.2",
+    "typescript": "^5.2.2"
+  }
+}

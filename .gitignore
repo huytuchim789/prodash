@@ -108,3 +108,8 @@ Thumbs.db
 
 # Documentation
 docs/
+
+# Playground
+playground/node_modules/
+playground/dist/
+playground/.tsbuildinfo
