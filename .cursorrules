@@ -1,0 +1,189 @@
+# Prodash - Modern Utility Library Cursor Rules
+
+## Project Overview
+Prodash is a modern, tree-shakable JavaScript utility library built with TypeScript, following lodash patterns but optimized for modern JavaScript development.
+
+## Core Development Principles
+
+### 1. **Pure Functions & Immutability**
+- All functions MUST be pure with no side effects
+- Always return new values, never mutate inputs
+- Use `readonly` for input parameters where appropriate
+- Example:
+```typescript
+// ✅ Good - Pure function
+export function map<T, R>(array: readonly T[], iteratee: Iteratee<T, R>): R[] {
+  const result: R[] = [];
+  // ... implementation
+  return result;
+}
+
+// ❌ Bad - Mutates input
+export function badMap<T>(array: T[]): T[] {
+  array.reverse(); // Mutates input!
+  return array;
+}
+```
+
+### 2. **Modular Structure for Tree-Shaking**
+- Each function MUST be in its own file (e.g., `src/array/map.ts`)
+- Provide both named and default exports
+- File structure: `src/{category}/{functionName}.ts`
+- Always export types from `src/types/index.ts`
+
+### 3. **TypeScript Best Practices**
+- Use `strict: true` mode always
+- Never use `any` - use proper generics and union types
+- Provide comprehensive JSDoc with examples
+- Use template types for generic functions
+- Example function signature:
+```typescript
+/**
+ * Description with example
+ * @template T - Input type
+ * @template R - Return type  
+ * @param param - Parameter description
+ * @returns Return description
+ * @example
+ * ```typescript
+ * import { functionName } from 'prodash/functionName';
+ * functionName([1, 2, 3], x => x * 2); // => [2, 4, 6]
+ * ```
+ */
+export function functionName<T, R>(/* params */): R {
+  // Implementation
+}
+```
+
+### 4. **Error Handling**
+- Validate inputs and throw descriptive TypeErrors
+- Handle edge cases (empty arrays, null/undefined, etc.)
+- Example:
+```typescript
+if (!Array.isArray(array)) {
+  throw new TypeError('Expected array as first argument');
+}
+if (typeof iteratee !== 'function') {
+  throw new TypeError('Expected function as second argument');
+}
+```
+
+### 5. **Performance Optimization**
+- Prefer native JavaScript APIs when they perform better
+- Use `Set` for deduplication instead of nested loops
+- Benchmark against lodash equivalents
+- Keep bundle size minimal
+
+### 6. **Testing Requirements**
+- Write comprehensive unit tests for each function
+- Test edge cases: null, undefined, empty arrays, invalid inputs
+- Achieve >90% code coverage
+- Test immutability (inputs not mutated)
+- Use Arrange-Act-Assert pattern
+- Example test structure:
+```typescript
+describe('functionName', () => {
+  it('should handle normal case', () => {
+    const result = functionName([1, 2, 3], x => x * 2);
+    expect(result).toEqual([2, 4, 6]);
+  });
+
+  it('should throw for invalid inputs', () => {
+    expect(() => functionName(null as any, x => x)).toThrow(TypeError);
+  });
+
+  it('should not mutate input', () => {
+    const original = [1, 2, 3];
+    const copy = [...original];
+    functionName(original, x => x * 2);
+    expect(original).toEqual(copy);
+  });
+});
+```
+
+## File Organization
+
+```
+src/
+├── array/          # Array utilities (map, filter, chunk, etc.)
+├── object/         # Object utilities (pick, omit, merge, etc.)
+├── function/       # Function utilities (debounce, throttle, etc.)
+├── lang/           # Language utilities (isEqual, cloneDeep, etc.)
+├── string/         # String utilities (capitalize, kebabCase, etc.)
+├── chain/          # Chain API implementation
+├── types/          # TypeScript type definitions
+└── index.ts        # Main export file
+```
+
+## Code Style
+
+### Imports
+```typescript
+// ✅ Good - Import types
+import type { Iteratee, Predicate } from '../types';
+
+// ✅ Good - Import functions
+import { otherFunction } from '../other/otherFunction';
+```
+
+### Function Structure
+```typescript
+export function functionName<T>(param: T): T {
+  // 1. Input validation
+  if (/* invalid */) {
+    throw new TypeError('Descriptive error message');
+  }
+
+  // 2. Handle edge cases
+  if (/* edge case */) {
+    return /* appropriate default */;
+  }
+
+  // 3. Main implementation
+  const result = /* implementation */;
+  
+  // 4. Return new value
+  return result;
+}
+
+export default functionName;
+```
+
+### Documentation
+- Always include JSDoc with `@template`, `@param`, `@returns`, `@example`
+- Provide TypeScript examples in code examples
+- Show both individual imports and usage
+
+## Chain API Guidelines
+- Support method chaining for arrays and objects
+- Implement lazy evaluation where possible
+- Provide `.value()` method to unwrap result
+- Example:
+```typescript
+chain([1, 2, 3, 4])
+  .filter(n => n % 2 === 0)
+  .map(n => n * 2)
+  .value(); // => [4, 8]
+```
+
+## Adding New Functions
+1. Create function file in appropriate category directory
+2. Follow naming convention: `src/{category}/{functionName}.ts`
+3. Write comprehensive tests: `src/{category}/{functionName}.test.ts`
+4. Add exports to `src/index.ts`
+5. Update types if needed in `src/types/index.ts`
+6. Add to chain API if applicable
+
+## Build & Development
+- Use `npm run build` to build all formats (ESM, CJS, UMD)
+- Use `npm test` for testing with coverage
+- Use `npm run lint` for linting
+- Follow semantic versioning for releases
+
+## Performance Benchmarks
+- Benchmark new functions against lodash equivalents
+- Target performance: equal or 2x faster than lodash
+- Monitor bundle size impact
+- Use `npm run benchmark` to run performance tests
+
+Remember: The goal is to create a modern, performant, tree-shakable utility library that provides excellent developer experience while maintaining small bundle sizes.
