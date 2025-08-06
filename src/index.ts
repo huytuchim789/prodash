@@ -54,6 +54,7 @@ import { cloneDeep } from './lang/cloneDeep.js';
 
 // Checker Type
 import isArray from './lang/isArray.js';
+import isObject from './lang/isObject';
 
 // Default export for convenience (not recommended for tree-shaking)
 const prodash = {
@@ -74,6 +75,7 @@ const prodash = {
   isEqual,
   cloneDeep,
   isArray,
+  isObject,
 
   // Chain
   // chain,
