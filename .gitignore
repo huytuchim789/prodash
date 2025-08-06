@@ -110,3 +110,6 @@ docs/
 playground/node_modules/
 playground/dist/
 playground/.tsbuildinfo
+playground/package-lock.json
+
+package-lock.json

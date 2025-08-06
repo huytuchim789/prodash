@@ -1,3 +1,4 @@
+export { VERSION } from './lang/_setup';
 /**
  * prodash - A modern, tree-shakable JavaScript utility library
  *
@@ -51,6 +52,9 @@ import { isEqual } from './lang/isEqual.js';
 import { cloneDeep } from './lang/cloneDeep.js';
 // import { chain } from './chain/chain.js';
 
+// Checker Type
+import isArray from './lang/isArray.js';
+
 // Default export for convenience (not recommended for tree-shaking)
 const prodash = {
   // Array
@@ -69,6 +73,7 @@ const prodash = {
   // Lang
   isEqual,
   cloneDeep,
+  isArray,
 
   // Chain
   // chain,
