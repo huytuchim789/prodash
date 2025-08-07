@@ -70,6 +70,14 @@ jobs:
     - name: Build library
       run: yarn build
 
+    - name: Extract version from tag
+      id: extract_version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+    - name: Update package.json version
+      run: |
+        npm version ${{ steps.extract_version.outputs.VERSION }} --no-git-tag-version
+        
     - name: Publish to NPM
       run: yarn publish
       env:
