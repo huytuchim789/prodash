@@ -1,6 +1,6 @@
 {
   "name": "prodash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "A modern, tree-shakable JavaScript utility library with TypeScript support",
   "keywords": [
