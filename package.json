@@ -10,15 +10,15 @@
     "tree-shaking",
     "typescript"
   ],
-  "author": "Your Name",
+  "author": "huytuchim789",
   "license": "MIT",
-  "homepage": "https://github.com/yourusername/prodash#readme",
+  "homepage": "https://github.com/huytuchim789/prodash#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/prodash.git"
+    "url": "https://github.com/huytuchim789/prodash.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/prodash/issues"
+    "url": "https://github.com/huytuchim789/prodash/issues"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -44,7 +44,7 @@
     }
   },
   "scripts": {
-    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:umd && npm run build:types",
+    "build": "yarn clean && yarn build:cjs && yarn build:esm && yarn build:umd && yarn build:types",
     "build:cjs": "rollup -c rollup.config.cjs.js",
     "build:esm": "rollup -c rollup.config.esm.js",
     "build:umd": "rollup -c rollup.config.umd.js",
@@ -60,7 +60,7 @@
     "benchmark": "node benchmarks/index.js",
     "size": "size-limit",
     "prepare": "husky install",
-    "prepublishOnly": "npm run test && npm run build"
+    "prepublishOnly": "yarn test && yarn build"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
@@ -93,7 +93,7 @@
     "typescript-eslint": "^8.38.0"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "lint-staged": {
     "src/**/*.{ts,js}": [
