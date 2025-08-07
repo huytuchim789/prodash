@@ -2,9 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ master ]
+    tags:
+      - 'v*.*.*'  # Semantic versioning tags like v1.0.0, v2.1.3, etc.
   pull_request:
-    branches: [ main, develop ]
+    # Run on all PRs regardless of target branch
 
 jobs:
   test:
@@ -12,7 +14,7 @@ jobs:
     
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
     - name: Checkout repository
@@ -22,22 +24,22 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'yarn'
 
     - name: Install dependencies
-      run: npm ci
+      run: yarn install --frozen-lockfile
 
     - name: Run linter
-      run: npm run lint
+      run: yarn lint
 
     - name: Run tests
-      run: npm run test:coverage
+      run: yarn test:coverage
 
     - name: Build library
-      run: npm run build
+      run: yarn build
 
     - name: Check bundle size
-      run: npm run size
+      run: yarn size
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
@@ -49,7 +51,7 @@ jobs:
   publish:
     needs: test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, '.')
     
     steps:
     - name: Checkout repository
@@ -60,16 +62,16 @@ jobs:
       with:
         node-version: '18.x'
         registry-url: 'https://registry.npmjs.org'
-        cache: 'npm'
+        cache: 'yarn'
 
     - name: Install dependencies
-      run: npm ci
+      run: yarn install --frozen-lockfile
 
     - name: Build library
-      run: npm run build
+      run: yarn build
 
     - name: Publish to NPM
-      run: npm publish
+      run: yarn publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       if: "!contains(github.event.head_commit.message, '[skip publish]')"
