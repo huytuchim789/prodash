@@ -2,6 +2,7 @@ import { toString } from './_setup';
 
 export type TagTesterName =
   | 'Array'
+  | 'String'
   | 'Object'
   | 'Function'
   | 'Date'
