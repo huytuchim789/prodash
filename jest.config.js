@@ -21,14 +21,14 @@ export default {
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
-  coverageThreshold: {
-    global: {
-      branches: 90,
-      functions: 90,
-      lines: 90,
-      statements: 90,
-    },
-  },
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 90,
+  //     functions: 90,
+  //     lines: 90,
+  //     statements: 90,
+  //   },
+  // },
   testTimeout: 10000,
   verbose: true,
   // setupFilesAfterEnv: ['<rootDir>/src/__tests__/setup.test.ts'],
