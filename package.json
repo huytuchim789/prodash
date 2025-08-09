@@ -20,9 +20,9 @@
   "bugs": {
     "url": "https://github.com/huytuchim789/prodash/issues"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "types/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist",
@@ -32,15 +32,15 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "types": "./dist/types/index.d.ts"
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js",
+      "types": "./types/index.d.ts"
     },
     "./package.json": "./package.json",
     "./*": {
-      "import": "./dist/esm/*.js",
-      "require": "./dist/cjs/*.js",
-      "types": "./dist/types/*.d.ts"
+      "import": "./esm/*.js",
+      "require": "./cjs/*.js",
+      "types": "./types/*.d.ts"
     }
   },
   "scripts": {
@@ -90,7 +90,8 @@
     "ts-node": "^10.9.1",
     "typedoc": "^0.25.4",
     "typescript": "^5.2.2",
-    "typescript-eslint": "^8.38.0"
+    "typescript-eslint": "^8.38.0",
+    "@rollup/plugin-json": "^6.1.0"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -106,7 +107,7 @@
   },
   "size-limit": [
     {
-      "path": "dist/esm/index.js",
+      "path": "esm/index.js",
       "limit": "10 KB"
     }
   ],

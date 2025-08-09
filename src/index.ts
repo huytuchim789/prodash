@@ -34,6 +34,7 @@ export { debounce, default as debounceDefault } from './function/debounce.js';
 export { isEqual, default as isEqualDefault } from './lang/isEqual.js';
 export { cloneDeep, default as cloneDeepDefault } from './lang/cloneDeep.js';
 export { isPlainObject, default as isPlainObjectDefault } from './lang/isPlainObject.js';
+export { isElement, default as isElementDefault } from './lang/isElement.js';
 // Chain API
 // export { chain, default as chainDefault } from './chain/chain.js';
 
@@ -51,6 +52,7 @@ import { debounce } from './function/debounce.js';
 import { isEqual } from './lang/isEqual.js';
 import { cloneDeep } from './lang/cloneDeep.js';
 import { isPlainObject } from './lang/isPlainObject.js';
+import { isElement } from './lang/isElement.js';
 // import { chain } from './chain/chain.js';
 
 // Checker Type
@@ -78,6 +80,7 @@ const prodash = {
   isPlainObject,
   isArray,
   isObject,
+  isElement,
   // Chain
   // chain,
 };
