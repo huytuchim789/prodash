@@ -113,3 +113,6 @@ playground/.tsbuildinfo
 playground/package-lock.json
 
 package-lock.json
+
+# Stats
+stats.html
