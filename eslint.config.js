@@ -32,6 +32,14 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['dist/**', 'coverage/**', 'node_modules/**', '*.config.js', '*.config.cjs', '*.config.mjs'],
-  },
+    ignores: [
+      'dist/**',
+      'coverage/**',
+      'node_modules/**',
+      'playground/**',
+      '*.config.js',
+      '*.config.cjs',
+      '*.config.mjs',
+    ],
+  }
 );

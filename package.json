@@ -20,9 +20,9 @@
   "bugs": {
     "url": "https://github.com/huytuchim789/prodash/issues"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "types/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist",
@@ -32,15 +32,15 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "types": "./dist/types/index.d.ts"
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js",
+      "types": "./types/index.d.ts"
     },
     "./package.json": "./package.json",
     "./*": {
-      "import": "./dist/esm/*.js",
-      "require": "./dist/cjs/*.js",
-      "types": "./dist/types/*.d.ts"
+      "import": "./esm/*.js",
+      "require": "./cjs/*.js",
+      "types": "./types/*.d.ts"
     }
   },
   "scripts": {
@@ -60,11 +60,13 @@
     "benchmark": "node benchmarks/index.js",
     "size": "size-limit",
     "prepare": "husky install",
-    "prepublishOnly": "yarn test && yarn build"
+    "prepublishOnly": "yarn test && yarn build",
+    "build:visualize": "STATS=true yarn build && open stats.html"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
@@ -85,6 +87,7 @@
     "prettier": "^3.1.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.5.0",
+    "rollup-plugin-visualizer": "^6.0.3",
     "size-limit": "^10.0.2",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
