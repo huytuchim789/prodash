@@ -14,7 +14,11 @@ export type TagTesterName =
   | 'Map'
   | 'Set'
   | 'WeakMap'
-  | 'WeakSet';
+  | 'WeakSet'
+  | 'AsyncFunction'
+  | 'GeneratorFunction'
+  | 'AsyncGeneratorFunction'
+  | 'Proxy';
 
 export function tagTester(name: TagTesterName) {
   const tagName = `[object ${name}]`;
