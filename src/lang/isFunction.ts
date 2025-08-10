@@ -8,6 +8,7 @@ export default function isFunction(value: unknown) {
     tagTester('Function')(value) ||
     tagTester('AsyncFunction')(value) ||
     tagTester('GeneratorFunction')(value) ||
-    tagTester('Proxy')(value)
+    tagTester('Proxy')(value) ||
+    tagTester('AsyncGeneratorFunction')(value)
   );
 }

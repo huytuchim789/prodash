@@ -15,6 +15,7 @@ export type TagTesterName =
   | 'WeakSet'
   | 'AsyncFunction'
   | 'GeneratorFunction'
+  | 'AsyncGeneratorFunction'
   | 'Proxy';
 
 export function tagTester(name: TagTesterName) {

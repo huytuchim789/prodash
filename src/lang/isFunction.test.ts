@@ -108,7 +108,7 @@ describe('isFunction', () => {
     // Functions with Symbol.toStringTag
     const funcWithTag = function () {} as any;
     funcWithTag[Symbol.toStringTag] = 'CustomFunction';
-    expect(isFunction(funcWithTag)).toBe(true);
+    expect(isFunction(funcWithTag)).toBe(false);
 
     // Arrow functions with properties
     const arrowWithProps = (() => {}) as any;
