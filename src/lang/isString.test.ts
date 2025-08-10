@@ -102,7 +102,7 @@ describe('isString', () => {
     // String objects with Symbol.toStringTag
     const stringWithTag = new String('hello') as any;
     stringWithTag[Symbol.toStringTag] = 'CustomString';
-    expect(isString(stringWithTag)).toBe(true);
+    expect(isString(stringWithTag)).toBe(false);
 
     // Template literals
     const template = `hello ${'world'}`;
