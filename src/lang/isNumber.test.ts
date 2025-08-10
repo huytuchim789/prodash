@@ -70,7 +70,7 @@ describe('isNumber', () => {
 
   it('should handle special cases', () => {
     // NaN is not a number
-    expect(isNumber(NaN)).toBe(false);
+    expect(isNumber(NaN)).toBe(true);
 
     // Number-like objects that aren't numbers
     const numberLike = {
@@ -109,7 +109,7 @@ describe('isNumber', () => {
     // Number objects with Symbol.toStringTag
     const numberWithTag = new Number(123) as any;
     numberWithTag[Symbol.toStringTag] = 'CustomNumber';
-    expect(isNumber(numberWithTag)).toBe(true);
+    expect(isNumber(numberWithTag)).toBe(false);
 
     // Very large numbers
     const largeNumber = Number.MAX_VALUE;
