@@ -7,15 +7,15 @@
   resolved "https://registry.npmjs.org/@esbuild/aix-ppc64/-/aix-ppc64-0.25.8.tgz"
   integrity sha512-urAvrUedIqEiFR3FYSLTWQgLu5tb+m0qZw0NBEasUeo6wuqatkMDaRT+1uABiGXEu5vqgPd7FGE1BhsAIy9QVA==
 
-"@esbuild/android-arm@0.25.8":
-  version "0.25.8"
-  resolved "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.25.8.tgz"
-  integrity sha512-RONsAvGCz5oWyePVnLdZY/HHwA++nxYWIX1atInlaW6SEkwq6XkP3+cb825EUcRs5Vss/lGh/2YxAb5xqc07Uw==
-
 "@esbuild/android-arm64@0.25.8":
   version "0.25.8"
   resolved "https://registry.npmjs.org/@esbuild/android-arm64/-/android-arm64-0.25.8.tgz"
   integrity sha512-OD3p7LYzWpLhZEyATcTSJ67qB5D+20vbtr6vHlHWSQYhKtzUYrETuWThmzFpZtFsBIxRvhO07+UgVA9m0i/O1w==
+
+"@esbuild/android-arm@0.25.8":
+  version "0.25.8"
+  resolved "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.25.8.tgz"
+  integrity sha512-RONsAvGCz5oWyePVnLdZY/HHwA++nxYWIX1atInlaW6SEkwq6XkP3+cb825EUcRs5Vss/lGh/2YxAb5xqc07Uw==
 
 "@esbuild/android-x64@0.25.8":
   version "0.25.8"
@@ -42,15 +42,15 @@
   resolved "https://registry.npmjs.org/@esbuild/freebsd-x64/-/freebsd-x64-0.25.8.tgz"
   integrity sha512-MmaEXxQRdXNFsRN/KcIimLnSJrk2r5H8v+WVafRWz5xdSVmWLoITZQXcgehI2ZE6gioE6HirAEToM/RvFBeuhw==
 
-"@esbuild/linux-arm@0.25.8":
-  version "0.25.8"
-  resolved "https://registry.npmjs.org/@esbuild/linux-arm/-/linux-arm-0.25.8.tgz"
-  integrity sha512-FuzEP9BixzZohl1kLf76KEVOsxtIBFwCaLupVuk4eFVnOZfU+Wsn+x5Ryam7nILV2pkq2TqQM9EZPsOBuMC+kg==
-
 "@esbuild/linux-arm64@0.25.8":
   version "0.25.8"
   resolved "https://registry.npmjs.org/@esbuild/linux-arm64/-/linux-arm64-0.25.8.tgz"
   integrity sha512-WIgg00ARWv/uYLU7lsuDK00d/hHSfES5BzdWAdAig1ioV5kaFNrtK8EqGcUBJhYqotlUByUKz5Qo6u8tt7iD/w==
+
+"@esbuild/linux-arm@0.25.8":
+  version "0.25.8"
+  resolved "https://registry.npmjs.org/@esbuild/linux-arm/-/linux-arm-0.25.8.tgz"
+  integrity sha512-FuzEP9BixzZohl1kLf76KEVOsxtIBFwCaLupVuk4eFVnOZfU+Wsn+x5Ryam7nILV2pkq2TqQM9EZPsOBuMC+kg==
 
 "@esbuild/linux-ia32@0.25.8":
   version "0.25.8"
@@ -131,6 +131,13 @@
   version "0.25.8"
   resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.25.8.tgz"
   integrity sha512-cn3Yr7+OaaZq1c+2pe+8yxC8E144SReCQjN6/2ynubzYjvyqZjTXfQJpAcQpsdJq3My7XADANiYGHoFC69pLQw==
+
+"@huytuchim789/prodash@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@huytuchim789/prodash/-/prodash-0.0.4.tgz"
+  integrity sha512-YsvnLdY+Hmugu+rk2wuIXm9/4UYFQYOK5jNsBIjj3/An34/w4/ovClSI9TvDWJeF6cRRJ9gA0iOCNs3kuwKtmQ==
+  dependencies:
+    tslib "^2.8.1"
 
 "@types/node@^20.9.0":
   version "20.19.9"
@@ -422,9 +429,8 @@ portfinder@^1.0.28:
     async "^3.2.6"
     debug "^4.3.6"
 
-"prodash@file:../dist":
+"prodash@file:..":
   version "1.0.0"
-  resolved "file:../dist"
   dependencies:
     tslib "^2.8.1"
 
@@ -506,6 +512,11 @@ supports-color@^7.1.0:
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
+
+tslib@^2.8.1:
+  version "2.8.1"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz"
+  integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
 
 tsx@^4.6.2:
   version "4.20.3"
