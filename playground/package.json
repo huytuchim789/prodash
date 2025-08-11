@@ -14,7 +14,8 @@
     "test:cjs": "node src/cjs-test.cjs"
   },
   "dependencies": {
-    "prodash": "file:../dist"
+    "prodash": "file:..",
+    "@huytuchim789/prodash": "^0.0.4"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
