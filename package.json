@@ -20,9 +20,9 @@
   "bugs": {
     "url": "https://github.com/huytuchim789/prodash/issues"
   },
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
-  "types": "types/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist",
@@ -32,15 +32,15 @@
   ],
   "exports": {
     ".": {
-      "import": "./esm/index.js",
-      "require": "./cjs/index.js",
-      "types": "./types/index.d.ts"
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
     },
     "./package.json": "./package.json",
     "./*": {
-      "import": "./esm/*.js",
-      "require": "./cjs/*.js",
-      "types": "./types/*.d.ts"
+      "import": "./dist/esm/*.js",
+      "require": "./dist/cjs/*.js",
+      "types": "./dist/types/*.d.ts"
     }
   },
   "scripts": {
