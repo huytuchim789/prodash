@@ -12,6 +12,7 @@ console.log('🚀 Prodash Playground - Testing Environment\n');
 
 // Import prodash functions - now using the real library!
 import { isPlainObject, isEqual } from 'prodash';
+import * as _ from 'prodash';
 
 console.log(isPlainObject({}));
-console.log(isEqual({ a: 1 }, { a: 1 }));
+console.log(_.isEqual({ a: 1 }, { a: 1 }));
