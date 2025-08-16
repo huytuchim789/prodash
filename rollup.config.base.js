@@ -31,7 +31,7 @@ function copyPackageJson() {
 }
 
 export const baseConfig = {
-  input: 'src/index.ts',
+  input: 'src/index-all.ts',
   plugins: [
     resolve({
       browser: true,
