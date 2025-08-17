@@ -1,4 +1,4 @@
-import type { Predicate } from '../types/index.js';
+import type { Predicate } from '../types';
 
 /**
  * Iterates over elements of collection, returning an array of all elements predicate returns truthy for.

@@ -1,4 +1,4 @@
-import type { AnyFunction, DebounceOptions } from '../types/index.js';
+import type { AnyFunction, DebounceOptions } from '../types';
 
 interface DebouncedFunction<T extends AnyFunction> {
   (...args: Parameters<T>): ReturnType<T> | undefined;
