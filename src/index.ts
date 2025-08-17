@@ -18,46 +18,46 @@ export { VERSION } from './lang/_setup';
  */
 
 // Array functions
-export { map, default as mapDefault } from './array/map.js';
-export { filter, default as filterDefault } from './array/filter.js';
-export { uniq, default as uniqDefault } from './array/uniq.js';
-export { chunk, default as chunkDefault } from './array/chunk.js';
+export { map, default as mapDefault } from './array/map';
+export { filter, default as filterDefault } from './array/filter';
+export { uniq, default as uniqDefault } from './array/uniq';
+export { chunk, default as chunkDefault } from './array/chunk';
 
 // Object functions
-export { pick, default as pickDefault } from './object/pick.js';
-export { omit, default as omitDefault } from './object/omit.js';
+export { pick, default as pickDefault } from './object/pick';
+export { omit, default as omitDefault } from './object/omit';
 
 // Function utilities
-export { debounce, default as debounceDefault } from './function/debounce.js';
+export { debounce, default as debounceDefault } from './function/debounce';
 
 // Language utilities
-export { isEqual, default as isEqualDefault } from './lang/isEqual.js';
-export { cloneDeep, default as cloneDeepDefault } from './lang/cloneDeep.js';
-export { isPlainObject, default as isPlainObjectDefault } from './lang/isPlainObject.js';
-export { isElement, default as isElementDefault } from './lang/isElement.js';
+export { isEqual, default as isEqualDefault } from './lang/isEqual';
+export { cloneDeep, default as cloneDeepDefault } from './lang/cloneDeep';
+export { isPlainObject, default as isPlainObjectDefault } from './lang/isPlainObject';
+export { isElement, default as isElementDefault } from './lang/isElement';
 // Chain API
-// export { chain, default as chainDefault } from './chain/chain.js';
+// export { chain, default as chainDefault } from './chain/chain';
 
 // Types
-export type * from './types/index.js';
+export type * from './types/index';
 
 // Import functions for the default export
-import { map } from './array/map.js';
-import { filter } from './array/filter.js';
-import { uniq } from './array/uniq.js';
-import { chunk } from './array/chunk.js';
-import { pick } from './object/pick.js';
-import { omit } from './object/omit.js';
-import { debounce } from './function/debounce.js';
-import { isEqual } from './lang/isEqual.js';
-import { cloneDeep } from './lang/cloneDeep.js';
-import { isPlainObject } from './lang/isPlainObject.js';
-import { isElement } from './lang/isElement.js';
-// import { chain } from './chain/chain.js';
+import { map } from './array/map';
+import { filter } from './array/filter';
+import { uniq } from './array/uniq';
+import { chunk } from './array/chunk';
+import { pick } from './object/pick';
+import { omit } from './object/omit';
+import { debounce } from './function/debounce';
+import { isEqual } from './lang/isEqual';
+import { cloneDeep } from './lang/cloneDeep';
+import { isPlainObject } from './lang/isPlainObject';
+import { isElement } from './lang/isElement';
+// import { chain } from './chain/chain';
 
 // Checker Type
-import isArray from './lang/isArray.js';
-import isObject from './lang/isObject.js';
+import isArray from './lang/isArray';
+import isObject from './lang/isObject';
 
 // Default export for convenience (not recommended for tree-shaking)
 const prodash = {
